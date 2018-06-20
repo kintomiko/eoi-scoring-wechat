@@ -1,0 +1,94 @@
+@import "/pages/wxParse/wxParse.wxss";
+/**app.wxss**/
+label{
+  display: block
+}
+
+view .section{
+  padding-left: 50rpx;
+  padding-right: 50rpx
+}
+
+.btn-area button{
+  margin-top: 30rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+}
+
+.submit{
+  background-color: yellowgreen;
+  color: white;
+}
+
+.question{
+  font-size: 110%;
+  margin-top: 20rpx;
+}
+
+.section{
+  padding-bottom: 20rpx
+}
+
+.container {
+  height: 100%;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50rpx 0;
+  box-sizing: border-box;
+}
+
+.section__title {
+  padding-top: 10px;
+  font-size: 150%;
+}
+
+.form{
+  font-size: 70%;
+}
+
+.score{
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  font-size: 160%;
+  color: red
+}
+
+.status{
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  font-size: 160%;
+  color: red
+}
+
+.result{
+  margin-top: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-size: 110%;
+  color: red
+}
+
+.tips{
+  padding-top: 10rpx;
+  font-size: 60%;
+  color: gray;
+}
+
+.separator{
+  height:2rpx;
+  background:#717171;
+  border-bottom:2rpx solid #313030;
+  margin-top: 20rpx
+}
+
+.grey{
+  background: #eeeeee
+}
+
+.widget__arrow{
+  text-align: center
+}

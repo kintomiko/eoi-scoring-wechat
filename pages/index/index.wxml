@@ -1,0 +1,106 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="form">
+     <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>  -->
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section section_gap grey">
+        <view class="section__title">年龄(Age)</view>
+        <label class="question">你的年龄是：</label>
+        <radio-group name="age">
+          <label><radio value="0"/>未满20岁 0分</label>
+          <label><radio value="30"/>20~39岁 30分</label>
+          <label><radio value="20"/>40~44岁 20分</label>
+          <label><radio value="10"/>45~49岁 10分</label>
+          <label><radio value="5"/>50~55岁 5分</label>
+        </radio-group>
+      </view>
+      <view class="section section_gap">
+        <view class="section__title">工作(Skilled employment)</view>
+        <label class="question">目前你是否已经在新西兰从事技能工作/持有一份新西兰技能工作邀请函(Job offer) 50分</label>
+        <switch name="offer"/>
+        <label>你是否持有绝对紧缺职业的新西兰工作邀请函(Job offer) 或 正在新西兰从事紧缺职业工作 10分</label>
+        <view class="tips">* 请查看文章下附的长期紧缺职业列表（Long term skill shortage list），获取详细信息。</view>
+        <switch name="nz_ss"/>
+        <label>你当前的工作地点是否在新西兰且在奥克兰地区以外 30分</label>
+        <switch name="loc"/>
+        <label>你在新西兰的本地工作收入时薪是否等于或大于$46.98 20分</label>
+        <switch name="salary"/>
+      </view>
+      <view class="section section_gap grey">
+        <view class="section__title">学历(Qualifications)</view>
+        <label class="question">你已持有以下学历：</label>
+        <radio-group name="cert">
+          <label><radio value="0"/>无 0分</label>
+          <label><radio value="40"/>Level 3 至 6（高中至大专文凭）40分</label>
+          <label><radio value="50"/>Level 7 或 8 (学士学位或研究生文凭) 50分</label>
+          <label><radio value="70"/>Level 9 或 10 (硕士学位或博士学位) 70分</label>
+        </radio-group>
+        <view class='tips'>*除持有在直接认可的大学取得的学士/硕士/博士学位（且在规定的年限内毕业）外，其他学历持有人的学历情况需经新西兰学历评估委员会（NZQA）评估（花费约4,000人民币）。直接认可的中国大学列表请参见本文。
+</view>
+        <label class="question">你已持有以下新西兰本地学历：</label>
+        <radio-group name="nz_cert">
+          <label><radio value="0"/>无新西兰本地学历或不符合以下条件 0分</label>
+          <label><radio value="15"/>2年及以上全日制硕士或博士学历 15分</label>
+          <label><radio value="10"/>1年及以上全日制硕士或博士学历 10分</label>
+          <label><radio value="10"/>2年及以上全日制学士学位 10分</label>
+          <label><radio value='5'/>2011年7月25日前毕业的高职至研究生文凭 5分</label>
+          <label><radio value='5'/>2011年7月25日前入读的任何2年及以上学历 5分</label>
+        </radio-group>
+      </view>
+      <view class="section section_gap">
+        <view class="section__title">工作经验(Work Experience)</view>
+        <label class='question'>你已从事技能工作</label>
+        <radio-group name="work_all">
+          <label><radio value="0"/>无 0分</label>
+          <label><radio value="10"/>2年 10分</label>
+          <label><radio value="20"/>4年 20分</label>
+          <label><radio value="30"/>6年 30分</label>
+          <label><radio value="40"/>8年 40分</label>
+          <label><radio value="50"/>10年及以上 50分</label>
+        </radio-group>
+        <view class="tips">*移民官对工作经验的认可将参照是否为澳新职业标准分类（ANZSCO）中的职位、是否在新西兰本地拥有一份工作或工作邀请、是否属于紧缺行业、是否有相应学历、工作经验是否在与新西兰相似的市场获取等因素。一般来说，新西兰移民局不认可非紧缺行业或非全资外企的中国工作经验，除非申请人已经在新西兰拥有相关工作或工作邀请。
+</view>
+        <label class='question'>你是否已在新西兰本地工作一年及以上 10分</label>
+        <switch name="nz_workexperience"/>
+        <label class='question'>你已有紧缺行业工作经验</label>
+        <radio-group name="ss">
+          <label><radio value="0"/>无绝对紧缺职业的工作经验 0分</label>
+          <label><radio value="10"/>2年~5年 10分</label>
+          <label><radio value="15"/>6年以上 15分</label>
+        </radio-group>
+      </view>
+      <view class="section section_gap grey">
+        <view class="section__title">配偶 (Partner)</view>
+        <label>你的配偶是否满足英语条件，并且目前已经在新西兰从事技能工作/持有一份新西兰技能工作邀请函(Job offer) 20分</label>
+        <switch name="partner_offer"/>
+        <view>你的配偶满足英语条件，并且持有新西兰认可的学历: </view>
+        <radio-group name="partner_cert">
+          <label><radio value="0"/>无 0分</label>
+          <label><radio value="10"/>Level 7 或 8 (学士学位或研究生文凭) 10分</label>
+          <label><radio value="20"/>Level 9 或 10 (硕士学位或博士学位) 20分</label>
+        </radio-group>
+        <view class='tips'>*除持有在直接认可的大学取得的学士/硕士/博士学位（且在规定的年限内毕业）外，其他学历持有人的学历情况需经新西兰学历评估委员会（NZQA）评估（花费约4,000人民币）。直接认可的中国大学列表请参见本文。
+</view>
+      </view>
+      <view class="btn-area">
+        <button formType="submit" class="submit">你的技术移民分数？</button>
+        <button formType="reset">重设</button>
+      </view>
+    </form>
+
+    <label wx:if="{{ scoreReady }}" class = "score">你的技术移民分数是: {{ score }}</label>
+    <label class = "status">{{ status || "" }}</label>
+    <view class = "result"><text>  {{ result || "" }}</text></view>
+
+    <view wx:if="{{ scoreReady }}"><image class="widget__arrow" src="../image/qrcode.jpg" mode="aspectFill"/></view>
+  </view>
+   <!-- <import src="../wxParse/wxParse.wxml"/>  -->
+  <!-- <template is="wxParse" data="{{wxParseData:rating.nodes}}"/> -->
+  <!-- <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+</view>
